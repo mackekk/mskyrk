@@ -23,6 +23,14 @@
   </head>
 
   <body>
+    <nav>
+      <ul>
+        <li><%= link_to "Hem", root_path %></li>
+        <li><%= link_to "Om mig", about_path %></li>
+        <li><%= link_to "Projekt", projects_path %></li>
+        <li><%= link_to "Kontakt", contact_path %></li>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>
