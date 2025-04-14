@@ -13,17 +13,21 @@
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
+    <%# Use the same logo for all icons %>
+    <%= favicon_link_tag 'kyrk-logo.png', rel: 'icon', type: 'image/png' %>
+    <%= favicon_link_tag 'kyrk-logo.png', rel: 'apple-touch-icon' %>
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
     <nav>
+      <div class="logo-container">
+        <%= link_to root_path do %>
+          <%= image_tag asset_path('kyrk-logo.png'), alt: "kyrk-logo.png", class: "logo" %>
+        <% end %>
+      </div>
       <ul>
         <li><%= link_to "Hem", root_path %></li>
         <li><%= link_to "Om mig", about_path %></li>
@@ -31,6 +35,8 @@
         <li><%= link_to "Kontakt", contact_path %></li>
       </ul>
     </nav>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
