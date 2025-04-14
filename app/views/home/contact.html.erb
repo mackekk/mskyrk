@@ -1,29 +1,52 @@
-<h1>Kontakta mig</h1>
+<%# Page header %>
+<h1 class="text-4xl font-bold text-gray-900 mb-8">Kontakta mig</h1>
 
-<div class="contact-container">
-  <div class="contact-info">
-    <h2>Kontaktinformation</h2>
-    <p>Email: [marcus.kyrk2@gmail.com]</p>
-    <p>LinkedIn: [https://www.linkedin.com/in/marcuskyrk/]</p>
-    <p>GitHub: [https://github.com/mackekk/]</p>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+  <%# Contact information %>
+  <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Kontaktinformation</h2>
+    <div class="space-y-4">
+      <div>
+        <p class="text-gray-600">
+          <span class="font-medium">Email:</span>
+          <a href="mailto:marcus.kyrk2@gmail.com" class="ml-2 text-blue-600 hover:text-blue-800">marcus.kyrk2@gmail.com</a>
+        </p>
+      </div>
+      <div>
+        <p class="text-gray-600">
+          <span class="font-medium">LinkedIn:</span>
+          <a href="https://www.linkedin.com/in/marcuskyrk/" target="_blank" rel="noopener noreferrer" class="ml-2 text-blue-600 hover:text-blue-800">Marcus Kyrk</a>
+        </p>
+      </div>
+      <div>
+        <p class="text-gray-600">
+          <span class="font-medium">GitHub:</span>
+          <a href="https://github.com/mackekk/" target="_blank" rel="noopener noreferrer" class="ml-2 text-blue-600 hover:text-blue-800">mackekk</a>
+        </p>
+      </div>
+    </div>
   </div>
 
-  <div class="contact-form">
-    <h2>Skicka meddelande</h2>
+  <%# Contact form %>
+  <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-6">Skicka meddelande</h2>
     <%= form_with(url: contact_path, local: true) do |form| %>
-      <div class="form-group">
-        <%= form.label :name, "Namn" %>
-        <%= form.text_field :name, required: true %>
+      <div class="mb-6">
+        <%= form.label :name, "Namn", class: "block mb-2 font-medium text-gray-900" %>
+        <%= form.text_field :name, required: true, 
+            class: "w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500" %>
       </div>
 
-      <div class="form-group">
-        <%= form.label :email, "Email" %>
-        <%= form.email_field :email, required: true %>
+      <div class="mb-6">
+        <%= form.label :email, "Email", class: "block mb-2 font-medium text-gray-900" %>
+        <%= form.email_field :email, required: true, 
+            class: "w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500" %>
       </div>
 
-      <div class="form-group">
-        <%= form.label :message, "Meddelande" %>
-        <%= form.text_area :message, required: true %>
+      <div class="mb-6">
+        <%= form.label :message, "Meddelande", class: "block mb-2 font-medium text-gray-900" %>
+        <%= form.text_area :message, required: true, rows: 4, 
+            class: "w-full p-3 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500" %>
       </div>
 
       <%= form.submit "Skicka", class: "submit-button" %>

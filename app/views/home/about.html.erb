@@ -1,14 +1,51 @@
-<h1>Om mig</h1>
+<%# Header section %>
+<div class="text-center mb-12">
+  <h1 class="text-4xl font-bold text-gray-900 mb-4">Om mig</h1>
+  <p class="text-xl text-gray-600">Hej! Jag är Marcus Kyrk och detta är min personliga hemsida.</p>
+</div>
 
-<div class="about-content">
-  <p>Hej! Jag är Marcus Kyrk och detta är min personliga hemsida.</p>
-  
-  <h2>Min bakgrund</h2>
-  <p>Här kan du läsa om min utbildning, erfarenhet och intressen.</p>
-  
-  <h2>Mina färdigheter</h2>
-  <p>Lista över dina tekniska och personliga färdigheter.</p>
-  
-  <h2>Vad jag brinner för</h2>
-  <p>Beskriv dina passioner och vad som driver dig i ditt arbete.</p>
+<%# Content sections %>
+<div class="space-y-12">
+  <%# Background section %>
+  <section class="bg-white rounded-lg shadow-sm p-8">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Min bakgrund</h2>
+    <div class="prose prose-lg text-gray-600">
+      <p>Här kan du läsa om min utbildning, erfarenhet och intressen.</p>
+      <%# Add your background content here %>
+    </div>
+  </section>
+
+  <%# Skills section %>
+  <section class="bg-white rounded-lg shadow-sm p-8">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Mina färdigheter</h2>
+    <div class="grid gap-4 md:grid-cols-2">
+      <div class="space-y-2">
+        <h3 class="font-medium text-gray-900">Tekniska färdigheter</h3>
+        <ul class="list-disc list-inside text-gray-600">
+          <li>Ruby on Rails</li>
+          <li>JavaScript</li>
+          <li>HTML & CSS</li>
+          <%# Add more skills %>
+        </ul>
+      </div>
+      <div class="space-y-2">
+        <h3 class="font-medium text-gray-900">Mjuka färdigheter</h3>
+        <ul class="list-disc list-inside text-gray-600">
+          <li>Problemlösning</li>
+          <li>Teamwork</li>
+          <li>Kommunikation</li>
+          <%# Add more skills %>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <%# Passion section %>
+  <section class="bg-white rounded-lg shadow-sm p-8">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Vad jag brinner för</h2>
+    <div class="prose prose-lg text-gray-600">
+      <p>Beskriv dina passioner och vad som driver dig i ditt arbete.</p>
+      <%# Add your passion content here %>
+    </div>
+  </section>
 </div> 

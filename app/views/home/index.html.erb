@@ -1,2 +1,25 @@
-<h1>Välkommen till Marcus Kyrks hemsida</h1>
-<p>Här hittar du info om mig, mina projekt och vad jag brinner för!</p>
+<%# Hero section %>
+<div class="text-center mb-16">
+  <h1 class="text-4xl font-bold text-gray-900 mb-4">Välkommen till Marcus Kyrks hemsida</h1>
+  <p class="text-xl text-gray-600">Här hittar du info om mig, mina projekt och vad jag brinner för!</p>
+</div>
+
+<%# Featured content %>
+<div class="grid gap-8 md:grid-cols-2">
+  <div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Om mig</h2>
+    <p class="text-gray-600 mb-4">Upptäck mer om min bakgrund, erfarenheter och passion för utveckling.</p>
+    <%= link_to "Läs mer →", about_path, class: "text-blue-600 hover:text-blue-700 font-medium" %>
+  </div>
+
+  <div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Mina projekt</h2>
+    <p class="text-gray-600 mb-4">Utforska de projekt jag har arbetat med och vad jag skapar.</p>
+    <%= link_to "Se projekten →", projects_path, class: "text-blue-600 hover:text-blue-700 font-medium" %>
+  </div>
+</div>
+
+<div class="max-w-4xl mx-auto">
+  <h2 class="text-2xl font-semibold text-gray-800 mb-4">Senaste uppdateringar</h2>
+</div>
+

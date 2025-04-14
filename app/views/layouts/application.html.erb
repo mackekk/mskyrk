@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full">
   <head>
     <title><%= content_for(:title) || "Mskyrk" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -16,27 +16,49 @@
     <%# Use the same logo for all icons %>
     <%= favicon_link_tag 'kyrk-logo.png', rel: 'icon', type: 'image/png' %>
     <%= favicon_link_tag 'kyrk-logo.png', rel: 'apple-touch-icon' %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <nav>
-      <div class="logo-container">
-        <%= link_to root_path do %>
-          <%= image_tag asset_path('kyrk-logo.png'), alt: "kyrk-logo.png", class: "logo" %>
-        <% end %>
+  <body class="h-full bg-gray-50">
+    <%# Sticky header with shadow %>
+    <header class="bg-white border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <%# Logo section %>
+          <div class="flex-shrink-0">
+            <%= link_to root_path, class: "flex items-center" do %>
+              <%= image_tag "kyrk-logo.png", class: "h-10 w-auto", alt: "Marcus Kyrk Logo" %>
+            <% end %>
+          </div>
+
+          <%# Navigation %>
+          <nav class="flex items-center space-x-8">
+            <%= link_to "Hem", root_path, class: "text-gray-800 hover:text-gray-600 text-base" %>
+            <%= link_to "Om mig", about_path, class: "text-gray-800 hover:text-gray-600 text-base" %>
+            <%= link_to "Projekt", projects_path, class: "text-gray-800 hover:text-gray-600 text-base" %>
+            <%= link_to "Kontakt", contact_path, class: "text-gray-800 hover:text-gray-600 text-base" %>
+          </nav>
+        </div>
       </div>
-      <ul>
-        <li><%= link_to "Hem", root_path %></li>
-        <li><%= link_to "Om mig", about_path %></li>
-        <li><%= link_to "Projekt", projects_path %></li>
-        <li><%= link_to "Kontakt", contact_path %></li>
-      </ul>
-    </nav>
-    <div class="container">
-      <%= yield %>
-    </div>
+    </header>
+
+    <%# Main content with improved centering and styling %>
+    <main class="min-h-[calc(100vh-4rem)] py-12 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <%= yield %>
+      </div>
+    </main>
+
+    <%# Footer %>
+    <footer class="bg-white border-t border-gray-200">
+      <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <p class="text-center text-gray-500 text-sm">
+          © <%= Time.current.year %> Marcus Kyrk. Alla rättigheter förbehållna.
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
