@@ -1,0 +1,3 @@
+@echo off
+echo Starting Rails and TailwindCSS...
+foreman start -f Procfile.dev
