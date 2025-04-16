@@ -43,6 +43,9 @@ gem "thruster", require: false
 # Use tailwindcss-rails for Tailwind CSS integration
 gem "tailwindcss-rails"
 
+# Environment variables
+gem 'dotenv-rails', groups: [:development, :test]
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
